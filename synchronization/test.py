@@ -14,7 +14,7 @@ import os
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 
-numberOfUnits = comm.size - 1
+numberOfUnits = comm.size
 
 if rank == 0:
     #This is the Post Office

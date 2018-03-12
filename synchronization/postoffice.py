@@ -30,6 +30,8 @@ class PostOffice:
 class DeliveryUnit:
   def __init__(self, id):
     self.ID = id
+    # Use a system clock to decide what will be delivered.
+    # Only packages that have been received until this time (their timestamp is less) will be delivered.
     self.clock = 0
 
     # Use separate clock to determine the delivery period.
@@ -47,6 +49,7 @@ class DeliveryUnit:
           break 
         
         # add lamport clock synch
+        # This ensures that the delivery unit will deliver all received packages until the delivery time.
         self.clock = max(self.clock, package.Timestamp)
 
         self.clock += 1
