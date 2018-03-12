@@ -25,4 +25,4 @@ if rank == 0:
 else:
     #this is a delivery unit
     du = DeliveryUnit(rank)
-    du.receiveAndDeliver()
+    du.receiveAndDeliver("lamp")
