@@ -1,0 +1,4 @@
+struct syncMessage{
+  long id;
+  string value;
+};
