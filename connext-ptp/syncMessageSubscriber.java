@@ -236,10 +236,25 @@ public class syncMessageSubscriber {
       syncComp.pushMasterClock(masterClock);
       System.out.println("Pushed clocks  " + (masterClock) + " <> " + (slaveClock));
 
-      long syncTo = syncComp.computeSyncDiff();
-      if (syncTo != 0){
-        int  rand = (int)(Math.random() * 2);
-        timer.setDelay((int)syncTo + rand);
+      int messageType = Integer.valueOf(message.id).intValue();
+
+      if (messageType == syncMessagePublisher.SYNC_MESSAGE){
+        long syncTo = syncComp.computeSyncDiff();
+        if (syncTo != 0){
+          int  rand = (int)(Math.random() * 2);
+          timer.setDelay((int)syncTo + rand);
+        }
+      }else if (messageType == syncMessagePublisher.DELAY_MESSAGE){
+        long delay = syncComp.computeDelay();
+        if (delay != 0){
+          System.out.println("Got delay in the system...." + delay);
+          timer.updateClock(-delay);
+        }
+        long offset = syncComp.computeOffset();
+        if (offset != 0){
+          System.out.println("Got offset in the system...." + offset);
+          timer.updateClock(offset);
+        }
       }
     };
 
@@ -335,6 +350,16 @@ public class syncMessageSubscriber {
           return sMDiff2 - sMDiff1;
         }
         return 0;
+      }
+
+        // Delay = [ (t2-t1) + (t3-t4) ] / 2
+      long computeDelay(){
+        return ((tS1 - tM1) + (tS2 - tM2)) / 2;
+      }
+
+      // Offset = [ (t2-t1) - (t3-t4) ] / 2
+      long computeOffset(){
+        return ((tS1 - tM1) - (tS2 - tM2)) / 2;
       }
     }
 

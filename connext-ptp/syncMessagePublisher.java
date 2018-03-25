@@ -201,8 +201,11 @@ public class syncMessagePublisher {
                 /* Modify the instance to be written here */
 
                     // @ASSIGNMENT HERE ----
-
-                instance.id = SYNC_MESSAGE;
+                if(count % 5 == 0){
+                  instance.id = DELAY_MESSAGE;
+                }else{
+                  instance.id = SYNC_MESSAGE;
+                }
                 instance.value = timer.getClock() + "";
 
                 /* Write data */

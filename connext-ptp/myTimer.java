@@ -25,4 +25,8 @@ public class myTimer {
   public long getClock(){
     return clock;
   }
+
+  public void updateClock(long update){
+    clock += update;
+  }
 }
