@@ -57,6 +57,7 @@ import java.util.ArrayList;
 import java.time.Clock;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.lang.Math;
 
 import com.rti.dds.domain.*;
 import com.rti.dds.infrastructure.*;
@@ -67,8 +68,8 @@ import com.rti.ndds.config.*;
 // ===========================================================================
 
 public class syncMessageSubscriber {
-  private static Duration d = Duration.ofMillis(100000);
-  private static Clock clock = Clock.offset(Clock.systemDefaultZone(), d);
+
+    private static myTimer timer = new myTimer(100);
 
     // -----------------------------------------------------------------------
     // Public Methods
@@ -190,6 +191,8 @@ public class syncMessageSubscriber {
             ++count) {
 
                 try {
+                    // syncMessageSubscriber.clock = Clock.offset(clock, offset);
+                    // syncMessageSubscriber.offset = offset.plusMillis(1);
                     Thread.sleep(receivePeriodMillis);
                 } catch (InterruptedException ix) {
                     System.err.println("INTERRUPTED");
@@ -226,17 +229,17 @@ public class syncMessageSubscriber {
 
     private static SyncComputer syncComp = new SyncComputer();
     private static IMessageObserver sync_clock = (syncMessage message)-> {
-      long slaveClock = clock.millis();
+      long slaveClock = timer.getClock();
       syncComp.pushSlaveClock(slaveClock);
+
       long masterClock = Long.valueOf(message.value).longValue();
       syncComp.pushMasterClock(masterClock);
+      System.out.println("Pushed clocks  " + (masterClock) + " <> " + (slaveClock));
 
-      long syncDiff = syncComp.computeSyncDiff();
-      if (syncDiff != 0){
-        System.out.println("Found sync difference... " + syncDiff + " at clock " + slaveClock);
-        Duration d = Duration.ofMillis(syncDiff);
-        Clock newClock = Clock.offset(clock, d);
-        syncMessageSubscriber.clock = newClock;
+      long syncTo = syncComp.computeSyncDiff();
+      if (syncTo != 0){
+        int  rand = (int)(Math.random() * 2);
+        timer.setDelay((int)syncTo + rand);
       }
     };
 
@@ -318,14 +321,17 @@ public class syncMessageSubscriber {
         }
 
         long masterDiff = tM2 - tM1;
-        long slaveDiff = tS1 - tS2;
+        long slaveDiff = tS2 -tS1;
         if (masterDiff != slaveDiff){
-          return slaveDiff - masterDiff;
+          System.out.println("Found difference between master cycles and slave cycles." + masterDiff + " vs " + slaveDiff);
+          int pub_period = syncMessagePublisher.PUBLISH_PERIOD_MS;
+          return pub_period/masterDiff;
         }
 
         long sMDiff1 = tS1 - tM1;
         long sMDiff2 = tS2 - tM2;
         if (sMDiff1 != sMDiff2){
+          System.out.println("Found difference between cycle 1 and cycle 2.");
           return sMDiff2 - sMDiff1;
         }
         return 0;

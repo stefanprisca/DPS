@@ -56,6 +56,7 @@ import java.util.Arrays;
 import java.time.Clock;
 import java.time.Duration;
 import java.time.LocalDate;
+import javax.swing.Timer;
 
 import com.rti.dds.domain.*;
 import com.rti.dds.infrastructure.*;
@@ -69,6 +70,7 @@ public class syncMessagePublisher {
 
     public static final int SYNC_MESSAGE = 1;
     public static final int DELAY_MESSAGE = 2;
+    public static final int PUBLISH_PERIOD_MS = 500;
 
     private static final long MASTER_OFFSET = 144;
     // -----------------------------------------------------------------------
@@ -189,10 +191,7 @@ public class syncMessagePublisher {
             and register the keyed instance prior to writing */
             //instance_handle = writer.register_instance(instance);
 
-            final long sendPeriodMillis = 4000; // 4 seconds
-
-            Duration d = Duration.ofMillis(MASTER_OFFSET);
-            Clock clock = Clock.offset(Clock.systemDefaultZone(), d);
+            myTimer timer = new myTimer(10);
             for (int count = 0;
             (sampleCount == 0) || (count < sampleCount);
             ++count) {
@@ -204,12 +203,12 @@ public class syncMessagePublisher {
                     // @ASSIGNMENT HERE ----
 
                 instance.id = SYNC_MESSAGE;
-                instance.value = clock.millis() + "";
+                instance.value = timer.getClock() + "";
 
                 /* Write data */
                 writer.write(instance, instance_handle);
                 try {
-                    Thread.sleep(sendPeriodMillis);
+                    Thread.sleep(PUBLISH_PERIOD_MS);
                 } catch (InterruptedException ix) {
                     System.err.println("INTERRUPTED");
                     break;

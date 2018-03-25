@@ -29,7 +29,7 @@ endif
 JAVA_PATH = java
 JAVAC_PATH = javac
 
-JAVA_SOURCES = $(SOURCE_DIR)./syncMessage.java $(SOURCE_DIR)./syncMessageSeq.java $(SOURCE_DIR)./syncMessageTypeSupport.java $(SOURCE_DIR)./syncMessageTypeCode.java $(SOURCE_DIR)./syncMessageDataReader.java $(SOURCE_DIR)./syncMessageDataWriter.java $(SOURCE_DIR)./syncMessageSubscriber.java $(SOURCE_DIR)./syncMessagePublisher.java
+JAVA_SOURCES = $(SOURCE_DIR)./syncMessage.java $(SOURCE_DIR)./syncMessageSeq.java $(SOURCE_DIR)./syncMessageTypeSupport.java $(SOURCE_DIR)./syncMessageTypeCode.java $(SOURCE_DIR)./syncMessageDataReader.java $(SOURCE_DIR)./syncMessageDataWriter.java $(SOURCE_DIR)./syncMessageSubscriber.java $(SOURCE_DIR)./syncMessagePublisher.java $(SOURCE_DIR)./myTimer.java
 CLASS_FILES  = $(JAVA_SOURCES:%.java=%.class)
 
 RTI_CLASSPATH := $(NDDSHOME)/lib/java/nddsjava.jar
