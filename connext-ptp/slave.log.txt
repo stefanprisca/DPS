@@ -1,0 +1,100 @@
+java -d64 -classpath ".:/home/stefan/rti_connext_dds-5.3.0/lib/java/nddsjava.jar" syncMessageSubscriber
+Pushed clocks  42 <> 5
+Pushed clocks  89 <> 10
+Found difference between master cycles and slave cycles.47 vs 5
+Pushed clocks  136 <> 50
+Found difference between master cycles and slave cycles.47 vs 40
+Pushed clocks  183 <> 92
+Found difference between master cycles and slave cycles.47 vs 42
+Pushed clocks  230 <> 139
+Got delay in the system....-91
+Pushed clocks  277 <> 277
+Found difference between master cycles and slave cycles.47 vs 138
+Pushed clocks  324 <> 324
+Pushed clocks  372 <> 372
+Pushed clocks  418 <> 419
+Found difference between master cycles and slave cycles.46 vs 47
+Pushed clocks  466 <> 466
+Pushed clocks  514 <> 515
+Found difference between master cycles and slave cycles.48 vs 49
+Pushed clocks  561 <> 558
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  608 <> 602
+Found difference between master cycles and slave cycles.47 vs 44
+Pushed clocks  655 <> 645
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  703 <> 693
+Got delay in the system....-10
+Pushed clocks  749 <> 750
+Found difference between master cycles and slave cycles.46 vs 57
+Pushed clocks  796 <> 793
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  844 <> 836
+Found difference between master cycles and slave cycles.48 vs 43
+Pushed clocks  890 <> 879
+Found difference between master cycles and slave cycles.46 vs 43
+Pushed clocks  938 <> 926
+Got delay in the system....-11
+Pushed clocks  986 <> 984
+Found difference between master cycles and slave cycles.48 vs 58
+Pushed clocks  1033 <> 1027
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  1080 <> 1070
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  1127 <> 1113
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  1172 <> 1156
+Got delay in the system....-15
+Got offset in the system....1
+Pushed clocks  1220 <> 1215
+Found difference between master cycles and slave cycles.48 vs 59
+Pushed clocks  1267 <> 1258
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  1314 <> 1305
+Pushed clocks  1362 <> 1353
+Pushed clocks  1409 <> 1401
+Got delay in the system....-8
+Pushed clocks  1457 <> 1457
+Found difference between master cycles and slave cycles.48 vs 56
+Pushed clocks  1504 <> 1504
+Pushed clocks  1552 <> 1552
+Pushed clocks  1599 <> 1599
+Pushed clocks  1647 <> 1647
+Pushed clocks  1694 <> 1694
+Pushed clocks  1741 <> 1741
+Pushed clocks  1789 <> 1789
+Pushed clocks  1837 <> 1836
+Found difference between master cycles and slave cycles.48 vs 47
+Pushed clocks  1885 <> 1884
+Got delay in the system....-1
+Pushed clocks  1932 <> 1933
+Found difference between master cycles and slave cycles.47 vs 49
+Pushed clocks  1979 <> 1976
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  2026 <> 2019
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  2073 <> 2062
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  2121 <> 2105
+Got delay in the system....-13
+Got offset in the system....2
+Pushed clocks  2168 <> 2164
+Found difference between master cycles and slave cycles.47 vs 59
+Pushed clocks  2215 <> 2211
+Pushed clocks  2263 <> 2259
+Pushed clocks  2310 <> 2307
+Found difference between master cycles and slave cycles.47 vs 48
+Pushed clocks  2358 <> 2350
+Got delay in the system....-5
+Got offset in the system....2
+Pushed clocks  2405 <> 2401
+Found difference between master cycles and slave cycles.47 vs 51
+Pushed clocks  2453 <> 2448
+Found difference between master cycles and slave cycles.48 vs 47
+Pushed clocks  2500 <> 2491
+Found difference between master cycles and slave cycles.47 vs 43
+Pushed clocks  2547 <> 2535
+Found difference between master cycles and slave cycles.47 vs 44
+RTI Data Distribution Service EVAL License issued to Aarhus University stefan.prisca@gmail.com For non-production use only.
+Expires on 13-Apr-2018 See www.rti.com for more information.
+makefile_syncMessage_x64Linux3gcc5.4.0:53: recipe for target 'syncMessageSubscriber' failed

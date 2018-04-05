@@ -200,12 +200,18 @@ public class syncMessagePublisher {
 
                 /* Modify the instance to be written here */
 
-                    // @ASSIGNMENT HERE ----
+                // @ASSIGNMENT HERE ----
                 if(count % 5 == 0){
+                  // @ASSIGNMENT: To make things easier, we will send delay correction messages from the master only.
+                  // In the paper, the dealy correction is initiated from the slave side, but that would require the slave to also have a
+                  // Connext writter instance. To keep things simple, the master clock is the only one with a writer (publisher), and
+                  // it will initiate the delay correction phases. Each 5th message will be a delay correction.
                   instance.id = DELAY_MESSAGE;
                 }else{
+                  // @ASSIGNMENT: normal synchronization message.
                   instance.id = SYNC_MESSAGE;
                 }
+                //@ASSIGNMENT Pass in our clock to the slaves listening at this topic
                 instance.value = timer.getClock() + "";
 
                 /* Write data */
