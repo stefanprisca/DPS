@@ -1,6 +1,7 @@
 from mpi4py import MPI
 import time
 import random
+from datetime import datetime
 
 comm = MPI.COMM_WORLD
 
@@ -47,10 +48,10 @@ class PostOffice:
     self.clock += 1
     package = Package(contents, self.clock)
     comm.send(package, dest=dest, tag=self.topic_id)
-    print('Sent package', self.topic_id, dest, self.clock)
+    print(datetime.now(), 'Sent package', self.topic_id, dest, self.clock)
 
   def sync_clock_or_elect(self):
-    print(self.id, 'synching...')
+    print(datetime.now(), self.id, 'synching...')
     sync_pkg = waitForPackage(self._master_sync_id)
     if sync_pkg is None:
       self._time_to_elect += random.random()
@@ -62,10 +63,10 @@ class PostOffice:
 
         existing_election = waitForPackage(self._bully_election_tag)
         if existing_election is not None:
-          print(self.id, '**** Continuing existing election...')
+          print(datetime.now(), self.id, '**** Continuing existing election...')
           self.elect_bully(existing_election.Contents)
         else:
-          print(self.id, '+++++ Starting new election')
+          print(datetime.now(), self.id, '+++++ Starting new election')
           self.elect_bully(None)
         
         self._time_to_elect = 0
@@ -76,7 +77,7 @@ class PostOffice:
 
   def elect_bully(self, initiator):
     i = self.po_ids.index(self.id)
-    print(self.id, 'Electing bully')
+    print(datetime.now(), self.id, 'Electing bully')
     
     empty_pckg = Package(self.id, None)
     #TODO: send OK to initiator
@@ -84,9 +85,9 @@ class PostOffice:
       comm.send(empty_pckg, initiator, tag=self._bully_ok_tag)
     
     candidates = self.po_ids[i+1:]
-    print(self.id, 'Candidates during bully election: ', candidates)
+    print(datetime.now(), self.id, 'Candidates during bully election: ', candidates)
     if len(candidates) == 0:
-      print('no candidates, sending coordinator...')
+      print(datetime.now(), 'no candidates, sending coordinator...')
       self.send_coordinator()
     else:
       #TODO: send elect messages to candidates
@@ -94,17 +95,17 @@ class PostOffice:
         comm.send(empty_pckg, candidate, tag=self._bully_election_tag)
       
       #TODO: wait for OK messages...
-      quit_ = True
-      for candidate in candidates:
-        ok = None #waitForPackage(self._bully_ok_tag)
-        if ok is not None:
-          quit_ = False
-          break
+      # found_coord = False
+      # for candidate in candidates:
+      #   # ok = waitForPackage(self._bully_ok_tag)
+      #   # if ok is not None:
+      #   #   found_coord = True
       
-      if quit_:
-        coord = waitForPackage(self._bully_coordinator_tag)
-        if coord is not None:
-          print(self.id, 'got coordinator:', coord.Contents)
+      # In the end we will receive a coordination message from somewhere.
+      # Skipping the wait for ok step makes the logic easier.
+      coord = waitForPackage(self._bully_coordinator_tag)
+      if coord is not None:
+        print(datetime.now(), self.id, 'got coordinator:', coord.Contents)
       else:
         self.send_coordinator()
     return
@@ -113,7 +114,7 @@ class PostOffice:
     i = self.po_ids.index(self.id)
     coord_package = Package(self.id, self.clock)
     followers = self.po_ids[:i]
-    print(self.id, 'sending coord messages', followers)
+    print(datetime.now(), self.id, 'sending coord messages', followers)
     for follower in followers:
       comm.send(coord_package, follower, tag=self._bully_coordinator_tag)
     self._is_bully = True
@@ -122,7 +123,7 @@ class PostOffice:
     i = self.po_ids.index(self.id)
     sync = Package(self.id, self.clock)
     followers = self.po_ids[:i]
-    print(self.id, 'sending sync messages', followers)
+    print(datetime.now(), self.id, 'sending sync messages', followers)
     for follower in followers:
       comm.send(sync, follower, tag=self._master_sync_id)
     self._is_bully = True
@@ -144,17 +145,20 @@ class DeliveryUnit:
     self.delivery_clock = 0
     self.delivery_period = 2
 
-  def receiveAndDeliver(self, log_name):
-    file = open("./logs/{}{}.txt".format(log_name, self.id), "w")
+  def receiveAndDeliver(self):
     packages = []
+    r = 0
+    retry_timeout = 5
     while True:
         package = waitForPackage(self.topic_id)
         if package == None:
+          r += 1
+          if r > retry_timeout:
+            break
           # PO stopped sending packages. Stop our loop as well
           time.sleep(1)
           continue 
         
-        print(self.id, 'Got package')
         # add lamport clock synch
         # This ensures that the delivery unit will deliver all received packages until the delivery time.
         self.clock = max(self.clock, package.Timestamp)
@@ -162,10 +166,10 @@ class DeliveryUnit:
         self.clock += 1
         self.delivery_clock += 1
         packages.append(package)
-        file.write("Delivery unit got package {} \n".format(package))
+        # print(datetime.now(), "Delivery unit got package {} \n".format(package))
         if self.delivery_clock % self.delivery_period == 0:
           delivered = self.deliverPackages(packages, self.clock)
-          file.write("Delivered packages {} at time {} \n".format(delivered, self.clock))
+          print(datetime.now(), "Delivered packages {} at time {} \n".format(delivered, self.clock))
   
   def deliverPackages(self, packages, deliveryTime):
     deliveredPkgs = []
@@ -180,12 +184,12 @@ def waitForPackage(topic_id):
   timeout = 0
   # Wait to receive something
   
-  print('Waiting for package', topic_id)
+  print(datetime.now(), 'Waiting for package', topic_id)
   while not comm.Iprobe(source=MPI.ANY_SOURCE, tag=topic_id) and timeout < 10:
-      time.sleep(random.random())
+      time.sleep(random.random()+0.5)
       timeout += 1
   if timeout == 10:
-      print('timed out...no package received', topic_id)
+      print(datetime.now(), 'timed out...no package received', topic_id)
       return None
   return comm.recv(tag=topic_id)
     

@@ -1,0 +1,30 @@
+2018-05-06 12:41:57.245392 
+
+
+ ------------ Wanting to create post office... 
+
+
+2018-05-06 12:41:57.245392 12 synching...
+2018-05-06 12:41:57.246389 Waiting for package 1000
+2018-05-06 12:42:08.235076 timed out...no package received 1000
+2018-05-06 12:42:08.235076 Waiting for package 1003
+2018-05-06 12:42:17.343374 timed out...no package received 1003
+2018-05-06 12:42:17.343374 Waiting for package 1001
+2018-05-06 12:42:26.720135 12 **** Continuing existing election...
+2018-05-06 12:42:26.720135 12 Electing bully
+2018-05-06 12:42:26.720135 12 Candidates during bully election:  []
+2018-05-06 12:42:26.720135 no candidates, sending coordinator...
+2018-05-06 12:42:26.720135 12 sending coord messages [3, 6, 9]
+2018-05-06 12:42:26.721094 Sent package 4 10 10
+2018-05-06 12:42:26.721094 12 sending sync messages [3, 6, 9]
+2018-05-06 12:42:26.921596 Sent package 4 11 11
+2018-05-06 12:42:27.022057 12 sending sync messages [3, 6, 9]
+2018-05-06 12:42:27.222172 Sent package 4 10 12
+2018-05-06 12:42:27.222172 12 sending sync messages [3, 6, 9]
+2018-05-06 12:42:27.422295 Sent package 4 11 13
+2018-05-06 12:42:27.522665 12 sending sync messages [3, 6, 9]
+2018-05-06 12:42:27.723129 Sent package 4 10 14
+2018-05-06 12:42:27.723129 12 sending sync messages [3, 6, 9]
+2018-05-06 12:42:27.923552 Sent package 4 11 15
+2018-05-06 12:42:28.024322 I'm bully, so I quit
+-----
