@@ -1,0 +1,6 @@
+Delivery unit got package <- Contents: <Package1> ; Timestamp:<2> -> 
+Delivery unit got package <- Contents: <Package2> ; Timestamp:<4> -> 
+Delivered packages [<- Contents: <Package1> ; Timestamp:<2> ->, <- Contents: <Package2> ; Timestamp:<4> ->] at time 5 
+Delivery unit got package <- Contents: <Package3> ; Timestamp:<6> -> 
+Delivery unit got package <- Contents: <Package4> ; Timestamp:<8> -> 
+Delivered packages [<- Contents: <Package1> ; Timestamp:<2> ->, <- Contents: <Package2> ; Timestamp:<4> ->, <- Contents: <Package3> ; Timestamp:<6> ->, <- Contents: <Package4> ; Timestamp:<8> ->] at time 9 

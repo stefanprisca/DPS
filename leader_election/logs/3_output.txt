@@ -1,0 +1,116 @@
+2018-05-06 12:41:57.252372 
+
+
+ ------------ Wanting to create post office... 
+
+
+2018-05-06 12:41:57.252372 3 synching...
+2018-05-06 12:41:57.252372 Waiting for package 1000
+2018-05-06 12:42:07.383789 timed out...no package received 1000
+2018-05-06 12:42:07.383789 Waiting for package 1003
+2018-05-06 12:42:17.166248 timed out...no package received 1003
+2018-05-06 12:42:17.166248 Waiting for package 1001
+2018-05-06 12:42:26.088750 timed out...no package received 1001
+2018-05-06 12:42:26.088750 3 +++++ Starting new election
+2018-05-06 12:42:26.088750 3 Electing bully
+2018-05-06 12:42:26.088750 3 Candidates during bully election:  [6, 9, 12]
+2018-05-06 12:42:26.089700 Waiting for package 1003
+2018-05-06 12:42:28.923537 3 got coordinator: 12
+2018-05-06 12:42:28.923537 Sent package 1 1 10
+2018-05-06 12:42:28.923537 3 synching...
+2018-05-06 12:42:28.923537 Waiting for package 1000
+2018-05-06 12:42:28.923537 Sent package 1 2 11
+2018-05-06 12:42:29.024263 3 synching...
+2018-05-06 12:42:29.024263 Waiting for package 1000
+2018-05-06 12:42:29.024263 Sent package 1 1 12
+2018-05-06 12:42:29.024263 3 synching...
+2018-05-06 12:42:29.024263 Waiting for package 1000
+2018-05-06 12:42:29.024263 Sent package 1 2 13
+2018-05-06 12:42:29.124462 3 synching...
+2018-05-06 12:42:29.124462 Waiting for package 1000
+2018-05-06 12:42:29.124462 Sent package 1 1 14
+2018-05-06 12:42:29.124462 3 synching...
+2018-05-06 12:42:29.124462 Waiting for package 1000
+2018-05-06 12:42:29.124462 Sent package 1 2 15
+2018-05-06 12:42:29.225191 3 synching...
+2018-05-06 12:42:29.225191 Waiting for package 1000
+2018-05-06 12:42:39.677718 timed out...no package received 1000
+2018-05-06 12:42:39.677718 Waiting for package 1003
+2018-05-06 12:42:48.809410 timed out...no package received 1003
+2018-05-06 12:42:48.809410 Waiting for package 1001
+2018-05-06 12:42:58.799088 timed out...no package received 1001
+2018-05-06 12:42:58.799088 3 +++++ Starting new election
+2018-05-06 12:42:58.799088 3 Electing bully
+2018-05-06 12:42:58.799088 3 Candidates during bully election:  [6, 9, 12]
+2018-05-06 12:42:58.799088 Waiting for package 1003
+2018-05-06 12:42:58.799088 3 got coordinator: 9
+2018-05-06 12:42:58.799088 Sent package 1 1 16
+2018-05-06 12:42:58.799088 3 synching...
+2018-05-06 12:42:58.799088 Waiting for package 1000
+2018-05-06 12:42:58.799088 Sent package 1 2 17
+2018-05-06 12:42:58.899823 3 synching...
+2018-05-06 12:42:58.899823 Waiting for package 1000
+2018-05-06 12:42:58.899823 Sent package 1 1 18
+2018-05-06 12:42:58.899823 3 synching...
+2018-05-06 12:42:58.899823 Waiting for package 1000
+2018-05-06 12:42:58.899823 Sent package 1 2 19
+2018-05-06 12:42:59.000592 3 synching...
+2018-05-06 12:42:59.000592 Waiting for package 1000
+2018-05-06 12:42:59.000592 Sent package 1 1 20
+2018-05-06 12:42:59.000592 3 synching...
+2018-05-06 12:42:59.000592 Waiting for package 1000
+2018-05-06 12:42:59.000592 Sent package 1 2 21
+2018-05-06 12:42:59.101526 3 synching...
+2018-05-06 12:42:59.101526 Waiting for package 1000
+2018-05-06 12:43:09.471203 timed out...no package received 1000
+2018-05-06 12:43:09.471203 Waiting for package 1003
+2018-05-06 12:43:19.256158 timed out...no package received 1003
+2018-05-06 12:43:19.256158 Waiting for package 1001
+2018-05-06 12:43:29.481333 timed out...no package received 1001
+2018-05-06 12:43:29.481333 3 +++++ Starting new election
+2018-05-06 12:43:29.481333 3 Electing bully
+2018-05-06 12:43:29.481333 3 Candidates during bully election:  [6, 9, 12]
+2018-05-06 12:43:29.481333 Waiting for package 1003
+2018-05-06 12:43:31.112412 3 got coordinator: 6
+2018-05-06 12:43:31.112412 Sent package 1 1 22
+2018-05-06 12:43:31.112412 3 synching...
+2018-05-06 12:43:31.112412 Waiting for package 1000
+2018-05-06 12:43:31.112412 Sent package 1 2 23
+2018-05-06 12:43:31.213146 3 synching...
+2018-05-06 12:43:31.213146 Waiting for package 1000
+2018-05-06 12:43:31.213146 Sent package 1 1 24
+2018-05-06 12:43:31.213146 3 synching...
+2018-05-06 12:43:31.213146 Waiting for package 1000
+2018-05-06 12:43:32.077400 Sent package 1 2 25
+2018-05-06 12:43:32.178169 3 synching...
+2018-05-06 12:43:32.178169 Waiting for package 1000
+2018-05-06 12:43:32.178169 Sent package 1 1 26
+2018-05-06 12:43:32.178169 3 synching...
+2018-05-06 12:43:32.178169 Waiting for package 1000
+2018-05-06 12:43:32.178169 Sent package 1 2 27
+2018-05-06 12:43:32.278904 3 synching...
+2018-05-06 12:43:32.278904 Waiting for package 1000
+2018-05-06 12:43:42.300208 timed out...no package received 1000
+2018-05-06 12:43:42.300208 Waiting for package 1003
+2018-05-06 12:43:53.104350 timed out...no package received 1003
+2018-05-06 12:43:53.104350 Waiting for package 1001
+2018-05-06 12:44:02.448665 timed out...no package received 1001
+2018-05-06 12:44:02.448665 3 +++++ Starting new election
+2018-05-06 12:44:02.448665 3 Electing bully
+2018-05-06 12:44:02.448665 3 Candidates during bully election:  [6, 9, 12]
+2018-05-06 12:44:02.448665 Waiting for package 1003
+2018-05-06 12:44:11.409173 timed out...no package received 1003
+2018-05-06 12:44:11.409173 3 sending coord messages []
+2018-05-06 12:44:11.409173 Sent package 1 1 28
+2018-05-06 12:44:11.409173 3 sending sync messages []
+2018-05-06 12:44:11.609699 Sent package 1 2 29
+2018-05-06 12:44:11.710444 3 sending sync messages []
+2018-05-06 12:44:11.910675 Sent package 1 1 30
+2018-05-06 12:44:11.910675 3 sending sync messages []
+2018-05-06 12:44:12.110813 Sent package 1 2 31
+2018-05-06 12:44:12.210955 3 sending sync messages []
+2018-05-06 12:44:12.411445 Sent package 1 1 32
+2018-05-06 12:44:12.411445 3 sending sync messages []
+2018-05-06 12:44:12.611473 Sent package 1 2 33
+2018-05-06 12:44:12.712184 I'm bully, so I quit
+-----

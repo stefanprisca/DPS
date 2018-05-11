@@ -1,0 +1,24 @@
+2018-05-06 12:41:57.252372 Waiting for package 1
+2018-05-06 12:42:06.633446 timed out...no package received 1
+2018-05-06 12:42:07.633674 Waiting for package 1
+2018-05-06 12:42:17.703042 timed out...no package received 1
+2018-05-06 12:42:18.703301 Waiting for package 1
+2018-05-06 12:42:28.376341 timed out...no package received 1
+2018-05-06 12:42:29.376787 Waiting for package 1
+2018-05-06 12:42:30.592446 Waiting for package 1
+2018-05-06 12:42:30.592446 Delivered packages [<- Contents: <Package0> ; Timestamp:<11> ->, <- Contents: <Package1> ; Timestamp:<13> ->] at time 14 
+
+2018-05-06 12:42:30.592446 Waiting for package 1
+2018-05-06 12:42:30.592446 Waiting for package 1
+2018-05-06 12:42:40.759231 timed out...no package received 1
+2018-05-06 12:42:41.759288 Waiting for package 1
+2018-05-06 12:42:52.545946 timed out...no package received 1
+2018-05-06 12:42:53.546511 Waiting for package 1
+2018-05-06 12:42:59.122470 Delivered packages [<- Contents: <Package0> ; Timestamp:<11> ->, <- Contents: <Package1> ; Timestamp:<13> ->, <- Contents: <Package2> ; Timestamp:<15> ->, <- Contents: <Package3> ; Timestamp:<17> ->] at time 18 
+
+2018-05-06 12:42:59.122470 Waiting for package 1
+2018-05-06 12:42:59.122470 Waiting for package 1
+2018-05-06 12:42:59.122470 Delivered packages [<- Contents: <Package0> ; Timestamp:<11> ->, <- Contents: <Package1> ; Timestamp:<13> ->, <- Contents: <Package2> ; Timestamp:<15> ->, <- Contents: <Package3> ; Timestamp:<17> ->, <- Contents: <Package4> ; Timestamp:<19> ->, <- Contents: <Package5> ; Timestamp:<21> ->] at time 22 
+
+2018-05-06 12:42:59.122470 Waiting for package 1
+2018-05-06 12:43:08.782768 timed out...no package received 1
